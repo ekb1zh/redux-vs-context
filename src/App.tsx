@@ -4,21 +4,21 @@ import styled from 'styled-components'
 import ButtonsPanel from 'components/ButtonsPanel'
 import {
   ContextProvider,
-  initialStore as contextInitialStore,
+  initialState as contextInitialState,
 } from 'components/ContextButton/context'
 
 import ReduxButton from 'components/ReduxButton'
 import {
   ReduxProvider,
-  initialStore as reduxInitialStore,
+  initialState as reduxInitialState,
 } from 'components/ReduxButton/redux'
 
 const Container = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-between;
   align-items: center;
 
-  height: 70%;
+  width: 430px;
 `
 
 const App: React.FC = () => {
@@ -26,14 +26,15 @@ const App: React.FC = () => {
     <Container>
       <ButtonsPanel header='Context'>
         <ContextProvider>
-          {Object.keys(contextInitialStore).map((name) => (
+          {Object.keys(contextInitialState).map((name) => (
             <ContextButton key={name} name={name} />
           ))}
         </ContextProvider>
       </ButtonsPanel>
+
       <ButtonsPanel header='Redux'>
         <ReduxProvider>
-          {Object.keys(reduxInitialStore).map((name) => (
+          {Object.keys(reduxInitialState).map((name) => (
             <ReduxButton key={name} name={name} />
           ))}
         </ReduxProvider>

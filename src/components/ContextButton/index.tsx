@@ -1,28 +1,23 @@
-import { useContextStore } from './context'
-import styled from 'styled-components'
+import { useContextState } from './context'
+import Button from 'components/Button'
 
 type Props = {
   name: string
 }
 
-const Button = styled.button`
-  height: 100px;
-  width: 100px;
-`
-
 const ContextButton: React.FC<Props> = ({ name }) => {
-  const { store, setStore } = useContextStore()
-
   console.log(`Button: '${name}'`)
 
+  const { state, setState } = useContextState()
+
   function handleClick() {
-    setStore((prev) => ({
+    setState((prev) => ({
       ...prev,
       [name]: prev[name] + 1,
     }))
   }
 
-  return <Button onClick={handleClick}>{store[name]}</Button>
+  return <Button onClick={handleClick}>{state[name]}</Button>
 }
 
 export default ContextButton

@@ -10,6 +10,8 @@ const Container = styled.div`
 const ChildrenContainer = styled.div`
   display: flex;
   justify-content: space-between;
+
+  margin-top: 20px;
 `
 
 type Props = {
