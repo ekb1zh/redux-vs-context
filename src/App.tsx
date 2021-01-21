@@ -1,7 +1,8 @@
-import ContextButton from 'components/ContextButton'
 import styled from 'styled-components'
 
 import ButtonsPanel from 'components/ButtonsPanel'
+
+import ContextButton from 'components/ContextButton'
 import { ContextProvider } from 'components/ContextButton/context'
 
 import ReduxButton from 'components/ReduxButton'
