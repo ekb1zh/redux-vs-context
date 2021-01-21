@@ -9,16 +9,16 @@ import { ReduxProvider } from 'components/ReduxButton/redux'
 
 const Container = styled.div`
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  width: 430px;
+  width: 500px;
 `
 
 const App: React.FC = () => {
   return (
     <Container>
-      <ButtonsPanel header='Context'>
+      <ButtonsPanel
+        header='Context'
+        footer={`При каждом клике, в консоль печатается 2 записи, т.к. обновляется объект контекста и перерендериваются все дочерние компоненты, т.е. обе кнопки.`}
+      >
         <ContextProvider>
           {['ContextButton-1', 'ContextButton-2'].map((name) => (
             <ContextButton key={name} name={name} />
@@ -26,7 +26,10 @@ const App: React.FC = () => {
         </ContextProvider>
       </ButtonsPanel>
 
-      <ButtonsPanel header='Redux'>
+      <ButtonsPanel
+        header='Redux'
+        footer={`При каждом клике, в консоль печатается 1 запись, т.к. Redux перерендеривает только тех подписчиков для которых обновились данные, т.е. одну кнопку.`}
+      >
         <ReduxProvider>
           {['ReduxButton-1', 'ReduxButton-2'].map((name) => (
             <ReduxButton key={name} name={name} />
