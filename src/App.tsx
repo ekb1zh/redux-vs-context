@@ -2,16 +2,10 @@ import ContextButton from 'components/ContextButton'
 import styled from 'styled-components'
 
 import ButtonsPanel from 'components/ButtonsPanel'
-import {
-  ContextProvider,
-  initialState as contextInitialState,
-} from 'components/ContextButton/context'
+import { ContextProvider } from 'components/ContextButton/context'
 
 import ReduxButton from 'components/ReduxButton'
-import {
-  ReduxProvider,
-  initialState as reduxInitialState,
-} from 'components/ReduxButton/redux'
+import { ReduxProvider } from 'components/ReduxButton/redux'
 
 const Container = styled.div`
   display: flex;
@@ -26,7 +20,7 @@ const App: React.FC = () => {
     <Container>
       <ButtonsPanel header='Context'>
         <ContextProvider>
-          {Object.keys(contextInitialState).map((name) => (
+          {['ContextButton-1', 'ContextButton-2'].map((name) => (
             <ContextButton key={name} name={name} />
           ))}
         </ContextProvider>
@@ -34,7 +28,7 @@ const App: React.FC = () => {
 
       <ButtonsPanel header='Redux'>
         <ReduxProvider>
-          {Object.keys(reduxInitialState).map((name) => (
+          {['ReduxButton-1', 'ReduxButton-2'].map((name) => (
             <ReduxButton key={name} name={name} />
           ))}
         </ReduxProvider>

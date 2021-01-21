@@ -1,23 +1,26 @@
 import { useContextState } from './context'
 import Button from 'components/Button'
+import { useEffect } from 'react'
 
 type Props = {
   name: string
 }
 
 const ContextButton: React.FC<Props> = ({ name }) => {
-  console.log(`Button: '${name}'`)
+  console.log(name)
 
   const { state, setState } = useContextState()
 
-  function handleClick() {
+  function increment() {
     setState((prev) => ({
       ...prev,
-      [name]: prev[name] + 1,
+      [name]: typeof prev[name] === 'number' ? prev[name] + 1 : 0,
     }))
   }
 
-  return <Button onClick={handleClick}>{state[name]}</Button>
+  useEffect(increment, [])
+
+  return <Button onClick={increment}>{state[name]}</Button>
 }
 
 export default ContextButton

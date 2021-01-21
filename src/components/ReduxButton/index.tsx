@@ -1,28 +1,31 @@
 import { useDispatch, useSelector } from 'react-redux'
 import type { State, Action } from './redux'
 import Button from 'components/Button'
+import { useEffect } from 'react'
 
 type Props = {
-  name: keyof State
+  name: string
 }
 
 const ReduxButton: React.FC<Props> = ({ name }) => {
-  console.log(`Button: '${name}'`)
+  console.log(name)
 
   const value = useSelector((state: State) => state[name])
   const dispatch = useDispatch()
 
-  function handleClick() {
+  function increment() {
     dispatch({
       type: 'SET',
       payload: {
         name: name,
-        value: value + 1,
+        value: typeof value === 'number' ? value + 1 : 0,
       },
     })
   }
 
-  return <Button onClick={handleClick}>{value}</Button>
+  useEffect(increment, [])
+
+  return <Button onClick={increment}>{value}</Button>
 }
 
 export default ReduxButton
