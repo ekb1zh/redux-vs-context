@@ -14,7 +14,7 @@ const Container = styled.div`
   min-width: 0;
 
   &:last-child {
-    margin-left: 30px;
+    margin-left: 40px;
   }
 `
 
