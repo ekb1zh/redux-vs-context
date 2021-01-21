@@ -6,7 +6,7 @@ const Button = styled.button`
 
   font-size: 30px;
 
-  &:last-child {
+  &:not(:first-child) {
     margin-left: 10px;
   }
 `

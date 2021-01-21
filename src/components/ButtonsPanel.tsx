@@ -13,7 +13,7 @@ const Container = styled.div`
   text-align: justify;
   min-width: 0;
 
-  &:last-child {
+  &:not(:first-child) {
     margin-left: 40px;
   }
 `
