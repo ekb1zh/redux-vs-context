@@ -11,7 +11,7 @@ const ContextButton: React.FC<Props> = ({ name }) => {
 
   const { state, setState } = useContextState()
 
-  function increment() {
+  const increment = () => {
     setState((prev) => ({
       ...prev,
       [name]: typeof prev[name] === 'number' ? prev[name] + 1 : 0,

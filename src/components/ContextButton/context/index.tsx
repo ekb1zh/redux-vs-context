@@ -14,7 +14,7 @@ const ContextProvider: React.FC = ({ children }) => {
   )
 }
 
-function useContextState() {
+const useContextState = () => {
   return useContext<ContextValue>(Context)
 }
 

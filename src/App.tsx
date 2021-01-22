@@ -21,9 +21,11 @@ const App: React.FC = () => {
         footer={`При клике по кнопке, в консоль печатается 2 записи, т.к. обновляется объект контекста и перерендериваются все дочерние компоненты (в данном случае обе кнопки).`}
       >
         <ContextProvider>
-          {['ContextButton-1', 'ContextButton-2'].map((name) => (
-            <ContextButton key={name} name={name} />
-          ))}
+          {['Updated ContextButton-1', 'Updated ContextButton-2'].map(
+            (name) => (
+              <ContextButton key={name} name={name} />
+            ),
+          )}
         </ContextProvider>
       </ButtonsPanel>
 
@@ -32,7 +34,7 @@ const App: React.FC = () => {
         footer={`При клике по кнопке, в консоль печатается 1 запись, т.к. Redux перерендеривает только тех подписчиков для которых обновились данные (в данном случае одна кнопка).`}
       >
         <ReduxProvider>
-          {['ReduxButton-1', 'ReduxButton-2'].map((name) => (
+          {['Updated ReduxButton-1', 'Updated ReduxButton-2'].map((name) => (
             <ReduxButton key={name} name={name} />
           ))}
         </ReduxProvider>

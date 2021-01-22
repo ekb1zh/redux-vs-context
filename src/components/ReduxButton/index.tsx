@@ -13,7 +13,7 @@ const ReduxButton: React.FC<Props> = ({ name }) => {
   const value = useSelector((state: State) => state[name])
   const dispatch = useDispatch()
 
-  function increment() {
+  const increment = () => {
     dispatch({
       type: 'SET',
       payload: {
