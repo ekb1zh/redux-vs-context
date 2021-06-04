@@ -1,5 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux'
-import type { State, Action } from './redux'
+import type { State } from './redux'
 import Button from 'components/Button'
 import { useEffect } from 'react'
 

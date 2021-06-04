@@ -10,7 +10,7 @@ import { ReduxProvider } from 'components/ReduxButton/redux'
 
 const Container = styled.div`
   display: flex;
-  width: 500px;
+  width: 60%;
 `
 
 const App: React.FC = () => {
